@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("/product.css");
+
+
+
+html {
+    box-sizing: border-box;
+    font-family: "Poppins", "Ariel", sans-serif;
+}
+
+body {
+    margin: auto 0;
+}
+
+p,
+a,
+li {
+    font-size: 1.25rem;
+}
+
+a,
+a:visited {
+    color: #0083c5;
+}
+
+
+
+
+[class*="col-"] {
+    /* originally had these stylings on product car but they looked butt ugly */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+    border-radius: 33px;
+    position: relative;
+    place-items: center;
+    align-content: center;
+}
+
+[class*="col-"]:hover{
+    box-shadow: 
+        inset 0 -3em 3em rgba(0, 0, 0, 0.2), 
+        0.3em 0.5em 1em rgba(0, 0, 0, 0.5);
+}
+
+
+
+img {
+    height: auto;
+    max-width: 100%;
+    border-radius: 33px;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+
+
+#site-banner,
+.grid-wrapper,
+#site-footer {
+    margin: auto 2em;
+}
+
+
+#site-banner {
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+    animation: header-load var(--header-load-time) ease-in;
+    border-bottom: 2px solid rgba(125, 125, 125, 0.35);
+    margin-bottom: 2em;
+}
+
+.site-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    list-style: none;
+    width: 100%;
+}
+
+#site-title {
+    display: none;
+}
+
+.grid-wrapper {
+    display: grid;
+    gap: 1.5em;
+    grid-auto-flow: row;
+}
+
+#site-footer {
+    margin-top: 20px;
+    border-top: 2px solid rgba(125, 125, 125, 0.35);
+}
+
+.socials{
+    display: flex;
+    gap: 1em;
+    margin-left: 1.5em;
+}
+
+.social-link{
+    color: grey;
+    font-size: 2rem;
+}
+
+.social-link:hover{
+    color: #0083c5;
+}
+
+/* tablet styling -- apply these styles from 480 onwards */
+@media only screen and (min-width: 480px) {
+    nav>ul>li {
+        display: inline;
+    }
+
+    .site-nav {
+        flex-direction: row;
+    }
+
+    #site-banner {
+        flex-direction: row;
+    }
+
+
+    #site-title {
+        display: block;
+    }
+
+
+    .grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        padding: .3125em; /*5px*/
+    }
+
+
+    #B,
+    #E,
+    .col-tab,
+    .col-3,
+    .col-4,
+    .col-2x3 {
+        grid-column: span 2;
+    }
+
+    .col-2x3{
+        grid-row: span 2;
+        
+    }
+
+    #C {
+        grid-column: 2;
+        grid-row: 8/9;
+    }
+
+    #D{
+        grid-column: 2;
+        grid-row: 13/14;
+    }
+
+    #site-footer{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .socials{
+        margin: 1em 1.5em 0 0;
+      }
+    
+
+}
+
+
+
+/* desktop styling -- apply these styles from 1080 onwards */
+@media only screen and (min-width:1081px) {
+    .grid-wrapper {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1920px;
+        margin: 2em;
+    }
+
+    #site-banner {
+        max-width: 1920px;
+        margin: 1em 2em;
+    }
+
+    #site-footer {
+        max-width: 1920px;
+        margin: 1em 2em;
+    }
+
+    .col-1 {
+        grid-column: 1fr;
+        /* border: 2px solid red; */
+    }
+
+
+    .col-2 {
+        grid-column: span 2;
+        /* border: 2px solid blue; */
+        display: flex;
+        flex-direction: row;
+        height: max-content;
+        justify-content: space-between;
+    }
+
+    .col-3 {
+        grid-column: span 3;
+        /* border: 2px solid green; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+    }
+
+    .col-4 {
+        grid-column: span 4;
+        /* border: 2px solid green; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+
+    .col-2x3{
+        grid-column: span 3;
+        grid-row: span 2;
+        display: flex;
+    }
+
+    #B, #E {
+        grid-column: span 2;
+    }
+
+
+
+    #C, #D{
+        grid-row: initial;
+        grid-column: initial;
+    }
+
+    .col-tab {
+        grid-column: unset;
+    }
+
+}
+
+/* set margins for v-big screens*/
+@media only screen and (min-width:1921px) {
+    #site-banner,
+    .grid-wrapper,
+    #site-footer {
+        margin:2em auto;
+    }
+}
+
+/* Animations */
+
+
+
+@keyframes header-load {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+
+@keyframes rotation {
+    0% {
+        --gradient-angle: 0deg;
+    }
+
+    100% {
+        --gradient-angle: 360deg;
+    }
+}

@@ -1,0 +1,82 @@
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+*,
+*::after,
+*::before {
+    --header-load-time: 300ms;
+    --clr-1: #000;
+    --clr-2: #333;
+    --clr-3: #666;
+    --clr-4: #999;
+    --clr-5: #ccc;
+}
+
+
+.product-card{
+    animation-name: product-card-load;
+    animation-duration: 600ms;
+    animation-timing-function: ease-in;
+    /* animation-delay: var(--header-load-time); */
+    animation-fill-mode: forwards;
+}
+
+.product-img-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 480px) {
+    .product-img-wrapper{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+
+
+.product-card:hover{
+    cursor: pointer;
+}
+
+
+.product-card::after,
+.product-card::before{
+    content: "";
+    position: absolute;
+    inset: -.5rem;
+    background:conic-gradient(
+        from var(--gradient-angle),
+        var(--clr-1),
+        var(--clr-2),
+        var(--clr-3),
+        var(--clr-4),
+        var(--clr-3),
+        var(--clr-2),
+    );
+    border-radius: inherit;
+    animation: rotation 20s linear infinite;
+}
+
+.product-card::after{
+    filter:blur(3.5rem)
+}
+
+@keyframes product-card-load {
+    0% {
+        scale: 0;
+    }
+
+
+    90% {
+        scale: 1.1;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
