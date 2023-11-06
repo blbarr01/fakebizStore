@@ -108,6 +108,19 @@ img {
     color: #0083c5;
 }
 
+#dropdown-content{
+    list-style: none;
+    display: none;
+}
+
+
+#dropdown:hover #dropdown-content
+{
+    display: block;
+}
+
+
+
 /* tablet styling -- apply these styles from 480 onwards */
 @media only screen and (min-width: 480px) {
     nav>ul>li {
